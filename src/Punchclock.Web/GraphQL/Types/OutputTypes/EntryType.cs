@@ -10,6 +10,7 @@ namespace Punchclock.Web.GraphQL.Types.OutputTypes
             Field(x => x.Id);
             Field(x => x.CheckIn);
             Field(x => x.CheckOut);
+            Field<EmployeeType>("employee");
         }
     }
 }
