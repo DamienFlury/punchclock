@@ -24,7 +24,7 @@
         \label{usecase}
     \end{figure}
     \subsection{Akteure}
-    Benutzer können sich anmelden, abmelden, und Entries managen.
+    Benutzer können sich anmelden, abmelden und Entries verwalten.
 
     \subsection{Anforderungen}
     \subsubsection{Create Account}
@@ -35,7 +35,16 @@
     \subsubsection{Login}
     Bestehende Benutzer können sich anmelden. Dazu werden wiederum
     die Email-Adresse, welche sie zur Erstellung verwendet wurde,
-    und das dazugehörige Passwort benötigt.
+    und das dazugehörige Passwort benötigt. Ein Aktivitätsdiagram
+    dazu finden Sie in Abbildung \ref{activity}
+
+    \begin{figure}
+        \begin{center}
+            \includegraphics[width=6cm]{images/Aktivitaetsdiagramm.png}     
+        \end{center}
+        \caption{Aktivitätsdiagramm}
+        \label{activity}
+    \end{figure}
 
     \subsubsection{Logout}
     Eingeloggte Benutzer können sich wieder abmelden. Dazu müssen
@@ -96,6 +105,18 @@
         \includegraphics[width=\textwidth]{images/Klassendiagramm.png}
         \caption{Klassendiagramm}
         \label{classdiagram}
+    \end{figure}
+
+    \subsection{Deploymentdiagramm}
+    Da wir lediglich auf localhost deployen, entstehen zwei Ports und eine
+    Datenbank, welche als einfaches File eingesetzt wird. Auf Port 5001
+    wird eine GraphQL Api mit .NET Core eingesetzt, auf Port 3000 entsteht
+    eine React Applikation (siehe Abbildung \ref{deployment}).
+
+    \begin{figure}
+        \includegraphics[width=\textwidth]{images/Deploymentdiagramm.png}
+        \caption{Deploymentdiagramm}
+        \label{deployment}
     \end{figure}
 
 \end{document}
