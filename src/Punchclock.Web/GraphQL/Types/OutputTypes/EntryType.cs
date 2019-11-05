@@ -8,8 +8,8 @@ namespace Punchclock.Web.GraphQL.Types.OutputTypes
         public EntryType()
         {
             Field(x => x.Id);
-            Field(x => x.CheckIn);
-            Field(x => x.CheckOut);
+            Field<DateTimeGraphType>("checkIn");
+            Field<DateTimeGraphType>("checkOut");
             Field<EmployeeType>("employee");
         }
     }

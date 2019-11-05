@@ -20,7 +20,7 @@
 
     \begin{figure}
         \includegraphics[width=\textwidth]{images/UseCaseDiagram.png}
-        \caption{Use Case-Diagramm}
+        \caption{Use Case-Diagramm (Entries und Autorisierung)}
         \label{usecase}
     \end{figure}
     \subsection{Akteure}
@@ -36,13 +36,13 @@
     Bestehende Benutzer können sich anmelden. Dazu werden wiederum
     die Email-Adresse, welche sie zur Erstellung verwendet wurde,
     und das dazugehörige Passwort benötigt. Ein Aktivitätsdiagram
-    dazu finden Sie in Abbildung \ref{activity}
+    dazu finden Sie in Abbildung \ref{activity}.
 
     \begin{figure}
         \begin{center}
-            \includegraphics[width=6cm]{images/Aktivitaetsdiagramm.png}     
+            \includegraphics[width=\textwidth]{images/Aktivitaetsdiagramm.png}     
         \end{center}
-        \caption{Aktivitätsdiagramm}
+        \caption{Aktivitätsdiagramm (Anmeldung)}
         \label{activity}
     \end{figure}
 
@@ -57,9 +57,9 @@
     \subsection{Nicht funktionale Anforderungen}
     \subsubsection{Performance}
     Die Datenbankabfragen müssen möglichst performant ablaufen, um die
-    Userexperience nicht einzuschränken.
+    Benutzerfreundlichkeit nicht einzuschränken.
     \subsubsection{Design}
-    Einheitliches Design in der Webapplikation, um die Userexperience zu
+    Einheitliches Design in der Webapplikation, um die Benutzerfreundlichkeit zu
     optimieren.
     \subsubsection{Simple Authentifizierung}
     Die Applikation benötigt Authentifizierung. Die Tokens werden im
@@ -119,4 +119,44 @@
         \label{deployment}
     \end{figure}
 
-\end{document}
+    \section{Testfälle}
+    \subsection{Funktionale Testfälle}
+    Eine Übersicht zu den funktionalen Testfällen finden Sie in Tabelle
+    \ref{functional}.
+    \bgroup
+    \def\arraystretch{1.5}
+    \begin{table}
+        \begin{tabular}{|l|l|l|}
+            \hline
+            \textbf{Testfall}                                                             & \textbf{Input}                                           & \textbf{Output}                                                                                    \\ \hline
+            User erstellt Account                                                         & \begin{tabular}[c]{@{}l@{}}Email\\ Passwort\end{tabular} & User wird angemeldet                                                                               \\ \hline
+            \begin{tabular}[c]{@{}l@{}}User gibt falsche \\ Credentials ein\end{tabular}  & \begin{tabular}[c]{@{}l@{}}Email\\ Passwort\end{tabular} & \begin{tabular}[c]{@{}l@{}}Fehlermeldung wird angezeigt\\ User bleibt auf Anmeldepage\end{tabular} \\ \hline
+            \begin{tabular}[c]{@{}l@{}}User gibt korrekte \\ Credentials ein\end{tabular} & \begin{tabular}[c]{@{}l@{}}Email\\ Passwort\end{tabular} & \begin{tabular}[c]{@{}l@{}}User wird auf Home \\ umgeleitet.\end{tabular}                          \\ \hline
+            User checkt ein                                                               & Current DateTime                                         & User sieht visuelles Feedback                                                                      \\ \hline
+            User checkt out                                                               & Current DateTime                                         & User sieht visuelles Feedback                                                                      \\ \hline
+            User meldet sich ab                                                           & -                                                        & \begin{tabular}[c]{@{}l@{}}User wird zurück auf \\ Welcome-Page umgeleitet.\end{tabular}           \\ \hline
+        \end{tabular}
+        \caption{Funktionale Testfälle}
+        \label{functional}
+    \end{table}
+    \egroup
+
+    \subsection{Nichtfunktionale Anforderungen}
+    Eine Übersicht zu den nichtfunktionalen Anforderungen finden Sie in
+    Tabelle \ref{nonfunctional}.
+
+    \bgroup
+    \def\arraystretch{1.5}
+    \begin{table}
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Testfall}          & \textbf{Result}                                                                                                                      \\ \hline
+            Einheitliches Design       & Der Benutzer findet sich zurecht.                                                                                                    \\ \hline
+            Einfache Authentifizierung & \begin{tabular}[c]{@{}l@{}}Der Benutzer braucht nur Email und \\ Passwort, um sich anzumelden.\end{tabular}                           \\ \hline
+            Performance                & \begin{tabular}[c]{@{}l@{}}Die Entries werden schnell zurückgegeben,\\ Wartezeiten müssen \textless 1 Sekunde betragen.\end{tabular} \\ \hline
+        \end{tabular}
+        \caption{Nichtfunktionale Testfälle}
+        \label{nonfunctional}
+    \end{table}
+    \egroup
+    \end{document}

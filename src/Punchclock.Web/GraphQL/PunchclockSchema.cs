@@ -9,6 +9,7 @@ namespace Punchclock.Web.GraphQL
         public PunchclockSchema(IDependencyResolver resolver) : base(resolver)
         {
             Query = resolver.Resolve<RootQuery>();
+            Mutation = resolver.Resolve<RootMutation>();
         }
     }
 }

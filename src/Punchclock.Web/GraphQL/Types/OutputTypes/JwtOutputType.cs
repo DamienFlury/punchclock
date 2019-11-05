@@ -1,4 +1,13 @@
-$HEADER$namespace $NAMESPACE$
+using GraphQL.Types;
+
+namespace Punchclock.Web.GraphQL.Types.OutputTypes
 {
-  public class $CLASS$ {$END$}
+    public class JwtOutputType : ObjectGraphType<JwtOutput>
+    {
+        public JwtOutputType()
+        {
+            Field(x => x.Token);
+            Field(x => x.Expiration);
+        }
+    }
 }

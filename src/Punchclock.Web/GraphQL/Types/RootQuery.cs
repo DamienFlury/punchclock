@@ -1,3 +1,5 @@
+using System.Linq;
+using System.Security.Claims;
 using GraphQL.Types;
 using Microsoft.EntityFrameworkCore;
 using Punchclock.Web.Data;
@@ -10,8 +12,13 @@ namespace Punchclock.Web.GraphQL.Types
         public RootQuery(PunchclockContext context)
         {
             Field<ListGraphType<EntryType>>("entries", resolve: ctx =>
-                context.Entries.Include(e => e.Employee)
-                    .ThenInclude(e => e.Department));
+            {
+                var user = (ClaimsPrincipal)ctx.UserContext;
+                var isUserAuthenticated = ((ClaimsIdentity) user.Identity).IsAuthenticated;
+                if (!isUserAuthenticated) return null;
+                return context.Entries.Where(e => e.Employee.UserName == user.Identity.Name).Include(e => e.Employee)
+                    .ThenInclude(e => e.Department);
+            });
             
             Field<ListGraphType<EmployeeType>>("employees", resolve: ctx => 
                 context.Employees.Include(e => e.Department)
@@ -19,7 +26,7 @@ namespace Punchclock.Web.GraphQL.Types
 
             Field<ListGraphType<DepartmentType>>("departments", resolve: ctx =>
                 context.Departments.Include(d => d.Employees)
-                    .ThenInclude(e => e.Entries));          
+                    .ThenInclude(e => e.Entries));
         }
     }
 }

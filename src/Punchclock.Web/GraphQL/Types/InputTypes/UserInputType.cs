@@ -2,9 +2,9 @@ using GraphQL.Types;
 
 namespace Punchclock.Web.GraphQL.Types.InputTypes
 {
-    public class EmployeeInputType : InputObjectGraphType<EmployeeInput>
+    public class UserInputType : InputObjectGraphType<UserInput>
     {
-        public EmployeeInputType()
+        public UserInputType()
         {
             Field(x => x.Email);
             Field(x => x.Password);
