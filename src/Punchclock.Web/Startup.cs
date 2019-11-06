@@ -64,6 +64,10 @@ namespace Punchclock.Web
                 .AddGraphTypes(ServiceLifetime.Scoped)
                 .AddUserContextBuilder(httpContext => httpContext.User)
                 .AddDataLoader();
+                
+            services.AddCors(options => options.AddPolicy("AllowAllOrigins", builder => builder.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod()));
             
             services.AddControllers();
         }
@@ -77,6 +81,7 @@ namespace Punchclock.Web
             }           
             
             app.UseAuthentication();
+            app.UseCors("AllowAllOrigins");
 
             app.UseGraphQL<PunchclockSchema>();
             app.UseGraphQLPlayground(new GraphQLPlaygroundOptions()); 
