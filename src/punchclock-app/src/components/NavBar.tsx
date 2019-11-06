@@ -12,25 +12,34 @@ const Spacer = styled.div`
 
 const StyledLink = styled(NavLink)`
   text-decoration: none;
+  color: inherit;
 `;
 
 const NavBar: React.FC = () => {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, logout } = useContext(AuthContext);
 
   return (
     <AppBar position="sticky">
       <Toolbar>
         <Typography variant="h6">Punchclock</Typography>
-        <Button color="inherit">Home</Button>
-        <Button color="inherit">Entries</Button>
-        <Spacer />
-        <StyledLink to="/login">
-          {isAuthenticated || (
-          <Button color="secondary" variant="contained">
-        Login
-          </Button>
-          )}
+        <StyledLink to="/">
+          <Button color="inherit">Home</Button>
         </StyledLink>
+        {isAuthenticated
+        && (
+        <StyledLink to="/entries">
+          <Button color="inherit">Entries</Button>
+        </StyledLink>
+        )}
+        <Spacer />
+        {isAuthenticated ? <Button color="secondary" variant="contained" onClick={logout}>Logout</Button>
+          : (
+            <StyledLink to="/login">
+              <Button color="secondary" variant="contained">
+        Login
+              </Button>
+            </StyledLink>
+          )}
       </Toolbar>
     </AppBar>
   );

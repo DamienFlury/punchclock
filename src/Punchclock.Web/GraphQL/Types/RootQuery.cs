@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Security.Claims;
+using GraphQL;
 using GraphQL.Types;
 using Microsoft.EntityFrameworkCore;
 using Punchclock.Web.Data;
@@ -15,7 +16,7 @@ namespace Punchclock.Web.GraphQL.Types
             {
                 var user = (ClaimsPrincipal)ctx.UserContext;
                 var isUserAuthenticated = ((ClaimsIdentity) user.Identity).IsAuthenticated;
-                if (!isUserAuthenticated) return null;
+                if (!isUserAuthenticated) throw new ExecutionError("Not authenticated");
                 return context.Entries.Where(e => e.Employee.UserName == user.Identity.Name).Include(e => e.Employee)
                     .ThenInclude(e => e.Department);
             });

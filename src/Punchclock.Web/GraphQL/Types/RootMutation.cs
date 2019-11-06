@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using GraphQL;
 using GraphQL.Instrumentation;
 using GraphQL.Types;
 using Microsoft.AspNetCore.Identity;
@@ -26,11 +27,11 @@ namespace Punchclock.Web.GraphQL.Types
             async Task<JwtOutput> CreateTokenAsync(UserInput user)
             {
                 var employee = await userManager.FindByEmailAsync(user.Email);
-                if (employee is null) return null;
+                if (employee is null) throw new ExecutionError("User does not exist");
 
                 var result = await signInManager.CheckPasswordSignInAsync(employee, user.Password, false);
 
-                if (!result.Succeeded) return null;
+                if (!result.Succeeded) throw new ExecutionError("Wrong password");
 
                 var claims = new[]
                 {
@@ -69,7 +70,7 @@ namespace Punchclock.Web.GraphQL.Types
                     };
 
                     var result = await userManager.CreateAsync(employee, user.Password);
-                    if (result != IdentityResult.Success) return null;
+                    if (result != IdentityResult.Success) throw new ExecutionError("This doesn't work");
 
                     return await CreateTokenAsync(user);
                 });
@@ -89,11 +90,11 @@ namespace Punchclock.Web.GraphQL.Types
                 {
                     var user = (ClaimsPrincipal)ctx.UserContext;
                     var isUserAuthenticated = ((ClaimsIdentity) user.Identity).IsAuthenticated;
-                    if (!isUserAuthenticated) return null;
+                    if (!isUserAuthenticated) throw new ExecutionError("Not authenticated");
                     
                     var entry = ctx.GetArgument<Entry>("entry");
                     var employee = await context.Employees.FirstOrDefaultAsync(e => e.UserName == user.Identity.Name);
-                    if (employee is null) return null;
+                    if (employee is null) throw new ExecutionError("Something went wrong");
                     entry.EmployeeId = employee.Id;
                     await context.Entries.AddAsync(entry);
                     await context.SaveChangesAsync();

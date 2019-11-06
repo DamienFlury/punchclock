@@ -1,13 +1,13 @@
 import React, {
-  // eslint-disable-next-line no-unused-vars
-  createContext, useState, Dispatch, SetStateAction,
+  createContext, useState,
 } from 'react';
 
 type State = {
   token: string | null,
   expiration: Date | null,
   authenticate: (token: string, expiration: string) => void,
-  isAuthenticated: boolean
+  isAuthenticated: boolean,
+  logout: () => void;
 }
 
 const initialState: State = {
@@ -15,6 +15,7 @@ const initialState: State = {
   expiration: null,
   authenticate: () => {},
   isAuthenticated: false,
+  logout: () => {},
 };
 
 
@@ -25,7 +26,16 @@ const localStorageExpiration = localStorage.getItem('expiration');
 
 const AuthProvider: React.FC = ({ children }) => {
   const [t, setToken] = useState<string | null>(localStorageToken);
-  const [e, setExpiration] = useState<Date | null>(localStorageExpiration === null ? null : new Date(localStorageExpiration));
+  const [e, setExpiration] = useState<Date | null>(localStorageExpiration === null
+    ? null
+    : new Date(localStorageExpiration));
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('expiration');
+    setToken(null);
+    setExpiration(null);
+  };
 
   const authenticate = (token: string, expiration: string) => {
     localStorage.setItem('token', token);
@@ -38,7 +48,7 @@ const AuthProvider: React.FC = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{
-      token: t, expiration: e, authenticate, isAuthenticated,
+      token: t, expiration: e, authenticate, isAuthenticated, logout,
     }}
     >
       {children}

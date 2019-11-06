@@ -2,14 +2,17 @@ import React, { useContext } from 'react';
 import './App.css';
 import { MuiThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core';
 import { blue } from '@material-ui/core/colors';
-import ApolloClient from 'apollo-boost';
+import ApolloClient, { Resolvers } from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter, Route, Switch, Redirect,
+} from 'react-router-dom';
 import Home from './components/Home';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
 import Welcome from './components/Welcome';
 import { AuthContext } from './providers/AuthProvider';
+import Entries from './components/Entries';
 
 const theme = createMuiTheme({
   palette: {
@@ -17,6 +20,13 @@ const theme = createMuiTheme({
     type: 'dark',
   },
 });
+
+const resolvers: Resolvers = {
+  EntryType: {
+    checkIn: (parent) => new Date(parent.checkIn),
+    checkOut: (parent) => new Date(parent.checkOut),
+  },
+};
 
 const client = new ApolloClient({
   uri: 'https://localhost:5001/graphql',
@@ -28,7 +38,23 @@ const client = new ApolloClient({
       },
     });
   },
+  resolvers,
 });
+
+type AuthenticatedRouteProps = {
+  isAuthenticated: boolean,
+  path: string,
+}
+
+const AuthenticatedRoute: React.FC<AuthenticatedRouteProps> = ({ isAuthenticated, children, path }) => (
+  <Route path={path}>
+    {isAuthenticated ? (
+      children
+    ) : (
+      <Redirect to="/" />
+    )}
+  </Route>
+);
 
 const App: React.FC = () => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -45,6 +71,9 @@ const App: React.FC = () => {
             <Route path="/Login">
               <Login />
             </Route>
+            <AuthenticatedRoute isAuthenticated={isAuthenticated} path="/entries">
+              <Entries />
+            </AuthenticatedRoute>
           </Switch>
         </BrowserRouter>
       </MuiThemeProvider>
