@@ -7,7 +7,7 @@ namespace Punchclock.Web.GraphQL.Types.OutputTypes
         public JwtOutputType()
         {
             Field(x => x.Token);
-            Field(x => x.Expiration);
+            Field<DateTimeGraphType>("expiration");
         }
     }
 }
