@@ -7,6 +7,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import {
   BrowserRouter, Route, Switch, Redirect,
 } from 'react-router-dom';
+import { StylesProvider } from '@material-ui/core/styles';
 import Home from './components/Home';
 import NavBar from './components/NavBar';
 import Login from './components/Login';
@@ -46,7 +47,10 @@ type AuthenticatedRouteProps = {
   path: string,
 }
 
-const AuthenticatedRoute: React.FC<AuthenticatedRouteProps> = ({ isAuthenticated, children, path }) => (
+const AuthenticatedRoute: React.FC<AuthenticatedRouteProps> = ({
+  isAuthenticated,
+  children, path,
+}) => (
   <Route path={path}>
     {isAuthenticated ? (
       children
@@ -59,25 +63,28 @@ const AuthenticatedRoute: React.FC<AuthenticatedRouteProps> = ({ isAuthenticated
 const App: React.FC = () => {
   const { isAuthenticated } = useContext(AuthContext);
   return (
-    <ApolloProvider client={client}>
-      <MuiThemeProvider theme={theme}>
-        <CssBaseline />
-        <BrowserRouter>
-          <NavBar />
-          <Switch>
-            <Route path="/" exact>
-              {isAuthenticated ? <Home /> : <Welcome />}
-            </Route>
-            <Route path="/Login">
-              <Login />
-            </Route>
-            <AuthenticatedRoute isAuthenticated={isAuthenticated} path="/entries">
-              <Entries />
-            </AuthenticatedRoute>
-          </Switch>
-        </BrowserRouter>
-      </MuiThemeProvider>
-    </ApolloProvider>
+
+    <StylesProvider injectFirst>
+      <ApolloProvider client={client}>
+        <MuiThemeProvider theme={theme}>
+          <CssBaseline />
+          <BrowserRouter>
+            <NavBar />
+            <Switch>
+              <Route path="/" exact>
+                {isAuthenticated ? <Home /> : <Welcome />}
+              </Route>
+              <Route path="/Login">
+                <Login />
+              </Route>
+              <AuthenticatedRoute isAuthenticated={isAuthenticated} path="/entries">
+                <Entries />
+              </AuthenticatedRoute>
+            </Switch>
+          </BrowserRouter>
+        </MuiThemeProvider>
+      </ApolloProvider>
+    </StylesProvider>
   );
 };
 
