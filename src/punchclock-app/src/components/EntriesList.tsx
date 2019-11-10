@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import {
@@ -12,7 +12,9 @@ type Entry = {
 }
 
 const EntriesList: React.FC = () => {
-  const { error, loading, data } = useQuery<{ entries: Entry[] }>(gql`
+  const {
+    error, loading, data, refetch,
+  } = useQuery<{ entries: Entry[] }>(gql`
     query Entries {
       entries {
         id
@@ -21,6 +23,10 @@ const EntriesList: React.FC = () => {
       }
     }
   `);
+
+  useEffect(() => {
+    refetch();
+  }, []);
 
   if (error) {
     return <Typography>Error</Typography>;

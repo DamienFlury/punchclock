@@ -100,6 +100,37 @@ namespace Punchclock.Web.GraphQL.Types
                     await context.SaveChangesAsync();
                     return entry;
                 });
+
+            FieldAsync<EntryType>("checkInOut",
+                resolve: async ctx =>
+                {
+                    var user = (ClaimsPrincipal)ctx.UserContext;
+                    var isUserAuthenticated = ((ClaimsIdentity) user.Identity).IsAuthenticated;
+                    if (!isUserAuthenticated) throw new ExecutionError("Not authenticated");
+
+                    var employee = context.Employees.FirstOrDefault(e => e.UserName == user.Identity.Name);
+                    
+                    var lastEntry = context.Entries
+                        .Where(e => e.Employee.Id == employee.Id)
+                        .OrderByDescending(e => e.Id).FirstOrDefault();
+                    
+                    if (lastEntry != null && lastEntry.CheckOut is null)
+                    {
+                        lastEntry.CheckOut = DateTime.UtcNow;
+                        await context.SaveChangesAsync();
+                        return lastEntry;
+                    }
+
+                    var entry = new Entry
+                    {
+                        CheckIn = DateTime.UtcNow,
+                        EmployeeId = employee.Id
+                    };
+                    await context.Entries.AddAsync(entry);
+                    await context.SaveChangesAsync();
+                    return entry;
+                });
+            
         }
     }
 }

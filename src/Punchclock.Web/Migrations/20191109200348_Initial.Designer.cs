@@ -9,7 +9,7 @@ using Punchclock.Web.Data;
 namespace Punchclock.Web.Migrations
 {
     [DbContext(typeof(PunchclockContext))]
-    [Migration("20191104215626_Initial")]
+    [Migration("20191109200348_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -271,7 +271,7 @@ namespace Punchclock.Web.Migrations
                     b.Property<DateTime>("CheckIn")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("CheckOut")
+                    b.Property<DateTime?>("CheckOut")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("EmployeeId")
@@ -287,702 +287,702 @@ namespace Punchclock.Web.Migrations
                         new
                         {
                             Id = 1L,
-                            CheckIn = new DateTime(2019, 11, 3, 22, 56, 26, 291, DateTimeKind.Local).AddTicks(9297),
-                            CheckOut = new DateTime(2019, 11, 5, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(795),
-                            EmployeeId = "13"
+                            CheckIn = new DateTime(2019, 11, 8, 21, 3, 47, 844, DateTimeKind.Local).AddTicks(371),
+                            CheckOut = new DateTime(2019, 11, 10, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(5788),
+                            EmployeeId = "20"
                         },
                         new
                         {
                             Id = 2L,
-                            CheckIn = new DateTime(2019, 11, 2, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1652),
-                            CheckOut = new DateTime(2019, 11, 6, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1668),
-                            EmployeeId = "4"
-                        },
-                        new
-                        {
-                            Id = 3L,
-                            CheckIn = new DateTime(2019, 11, 1, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1694),
-                            CheckOut = new DateTime(2019, 11, 7, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1696),
-                            EmployeeId = "7"
-                        },
-                        new
-                        {
-                            Id = 4L,
-                            CheckIn = new DateTime(2019, 10, 31, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1699),
-                            CheckOut = new DateTime(2019, 11, 8, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1700),
-                            EmployeeId = "11"
-                        },
-                        new
-                        {
-                            Id = 5L,
-                            CheckIn = new DateTime(2019, 10, 30, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1703),
-                            CheckOut = new DateTime(2019, 11, 9, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1705),
-                            EmployeeId = "3"
-                        },
-                        new
-                        {
-                            Id = 6L,
-                            CheckIn = new DateTime(2019, 10, 29, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1707),
-                            CheckOut = new DateTime(2019, 11, 10, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1708),
+                            CheckIn = new DateTime(2019, 11, 7, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6665),
+                            CheckOut = new DateTime(2019, 11, 11, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6682),
                             EmployeeId = "5"
                         },
                         new
                         {
+                            Id = 3L,
+                            CheckIn = new DateTime(2019, 11, 6, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6710),
+                            CheckOut = new DateTime(2019, 11, 12, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6712),
+                            EmployeeId = "2"
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            CheckIn = new DateTime(2019, 11, 5, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6714),
+                            CheckOut = new DateTime(2019, 11, 13, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6715),
+                            EmployeeId = "6"
+                        },
+                        new
+                        {
+                            Id = 5L,
+                            CheckIn = new DateTime(2019, 11, 4, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6718),
+                            CheckOut = new DateTime(2019, 11, 14, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6719),
+                            EmployeeId = "10"
+                        },
+                        new
+                        {
+                            Id = 6L,
+                            CheckIn = new DateTime(2019, 11, 3, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6722),
+                            CheckOut = new DateTime(2019, 11, 15, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6723),
+                            EmployeeId = "12"
+                        },
+                        new
+                        {
                             Id = 7L,
-                            CheckIn = new DateTime(2019, 10, 28, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1710),
-                            CheckOut = new DateTime(2019, 11, 11, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1712),
-                            EmployeeId = "11"
+                            CheckIn = new DateTime(2019, 11, 2, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6725),
+                            CheckOut = new DateTime(2019, 11, 16, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6727),
+                            EmployeeId = "1"
                         },
                         new
                         {
                             Id = 8L,
-                            CheckIn = new DateTime(2019, 10, 27, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1714),
-                            CheckOut = new DateTime(2019, 11, 12, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1715),
-                            EmployeeId = "4"
+                            CheckIn = new DateTime(2019, 11, 1, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6729),
+                            CheckOut = new DateTime(2019, 11, 17, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6730),
+                            EmployeeId = "16"
                         },
                         new
                         {
                             Id = 9L,
-                            CheckIn = new DateTime(2019, 10, 26, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1718),
-                            CheckOut = new DateTime(2019, 11, 13, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1719),
-                            EmployeeId = "11"
+                            CheckIn = new DateTime(2019, 10, 31, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6732),
+                            CheckOut = new DateTime(2019, 11, 18, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6734),
+                            EmployeeId = "18"
                         },
                         new
                         {
                             Id = 10L,
-                            CheckIn = new DateTime(2019, 10, 25, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1721),
-                            CheckOut = new DateTime(2019, 11, 14, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1723),
+                            CheckIn = new DateTime(2019, 10, 30, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6736),
+                            CheckOut = new DateTime(2019, 11, 19, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6738),
                             EmployeeId = "11"
                         },
                         new
                         {
                             Id = 11L,
-                            CheckIn = new DateTime(2019, 10, 24, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1725),
-                            CheckOut = new DateTime(2019, 11, 15, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1726),
-                            EmployeeId = "9"
+                            CheckIn = new DateTime(2019, 10, 29, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6740),
+                            CheckOut = new DateTime(2019, 11, 20, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6742),
+                            EmployeeId = "7"
                         },
                         new
                         {
                             Id = 12L,
-                            CheckIn = new DateTime(2019, 10, 23, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1766),
-                            CheckOut = new DateTime(2019, 11, 16, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1768),
-                            EmployeeId = "14"
+                            CheckIn = new DateTime(2019, 10, 28, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6744),
+                            CheckOut = new DateTime(2019, 11, 21, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6745),
+                            EmployeeId = "13"
                         },
                         new
                         {
                             Id = 13L,
-                            CheckIn = new DateTime(2019, 10, 22, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1771),
-                            CheckOut = new DateTime(2019, 11, 17, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1772),
+                            CheckIn = new DateTime(2019, 10, 27, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6748),
+                            CheckOut = new DateTime(2019, 11, 22, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6749),
                             EmployeeId = "10"
                         },
                         new
                         {
                             Id = 14L,
-                            CheckIn = new DateTime(2019, 10, 21, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1775),
-                            CheckOut = new DateTime(2019, 11, 18, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1776),
-                            EmployeeId = "11"
+                            CheckIn = new DateTime(2019, 10, 26, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6751),
+                            CheckOut = new DateTime(2019, 11, 23, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6753),
+                            EmployeeId = "2"
                         },
                         new
                         {
                             Id = 15L,
-                            CheckIn = new DateTime(2019, 10, 20, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1778),
-                            CheckOut = new DateTime(2019, 11, 19, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1780),
-                            EmployeeId = "20"
+                            CheckIn = new DateTime(2019, 10, 25, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6755),
+                            CheckOut = new DateTime(2019, 11, 24, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6756),
+                            EmployeeId = "2"
                         },
                         new
                         {
                             Id = 16L,
-                            CheckIn = new DateTime(2019, 10, 19, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1782),
-                            CheckOut = new DateTime(2019, 11, 20, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1783),
-                            EmployeeId = "15"
+                            CheckIn = new DateTime(2019, 10, 24, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6758),
+                            CheckOut = new DateTime(2019, 11, 25, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6760),
+                            EmployeeId = "6"
                         },
                         new
                         {
                             Id = 17L,
-                            CheckIn = new DateTime(2019, 10, 18, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1785),
-                            CheckOut = new DateTime(2019, 11, 21, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1787),
-                            EmployeeId = "19"
+                            CheckIn = new DateTime(2019, 10, 23, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6762),
+                            CheckOut = new DateTime(2019, 11, 26, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6763),
+                            EmployeeId = "9"
                         },
                         new
                         {
                             Id = 18L,
-                            CheckIn = new DateTime(2019, 10, 17, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1789),
-                            CheckOut = new DateTime(2019, 11, 22, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1790),
-                            EmployeeId = "14"
+                            CheckIn = new DateTime(2019, 10, 22, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6765),
+                            CheckOut = new DateTime(2019, 11, 27, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6767),
+                            EmployeeId = "13"
                         },
                         new
                         {
                             Id = 19L,
-                            CheckIn = new DateTime(2019, 10, 16, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1792),
-                            CheckOut = new DateTime(2019, 11, 23, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1794),
-                            EmployeeId = "8"
+                            CheckIn = new DateTime(2019, 10, 21, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6769),
+                            CheckOut = new DateTime(2019, 11, 28, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6771),
+                            EmployeeId = "7"
                         },
                         new
                         {
                             Id = 20L,
-                            CheckIn = new DateTime(2019, 10, 15, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1796),
-                            CheckOut = new DateTime(2019, 11, 24, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1797),
-                            EmployeeId = "1"
+                            CheckIn = new DateTime(2019, 10, 20, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6772),
+                            CheckOut = new DateTime(2019, 11, 29, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6774),
+                            EmployeeId = "3"
                         },
                         new
                         {
                             Id = 21L,
-                            CheckIn = new DateTime(2019, 10, 14, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1799),
-                            CheckOut = new DateTime(2019, 11, 25, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1801),
-                            EmployeeId = "2"
+                            CheckIn = new DateTime(2019, 10, 19, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6776),
+                            CheckOut = new DateTime(2019, 11, 30, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6777),
+                            EmployeeId = "9"
                         },
                         new
                         {
                             Id = 22L,
-                            CheckIn = new DateTime(2019, 10, 13, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1803),
-                            CheckOut = new DateTime(2019, 11, 26, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1804),
-                            EmployeeId = "5"
-                        },
-                        new
-                        {
-                            Id = 23L,
-                            CheckIn = new DateTime(2019, 10, 12, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1806),
-                            CheckOut = new DateTime(2019, 11, 27, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1808),
-                            EmployeeId = "18"
-                        },
-                        new
-                        {
-                            Id = 24L,
-                            CheckIn = new DateTime(2019, 10, 11, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1810),
-                            CheckOut = new DateTime(2019, 11, 28, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1812),
-                            EmployeeId = "1"
-                        },
-                        new
-                        {
-                            Id = 25L,
-                            CheckIn = new DateTime(2019, 10, 10, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1813),
-                            CheckOut = new DateTime(2019, 11, 29, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1815),
-                            EmployeeId = "2"
-                        },
-                        new
-                        {
-                            Id = 26L,
-                            CheckIn = new DateTime(2019, 10, 9, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1817),
-                            CheckOut = new DateTime(2019, 11, 30, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1818),
+                            CheckIn = new DateTime(2019, 10, 18, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6779),
+                            CheckOut = new DateTime(2019, 12, 1, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6781),
                             EmployeeId = "4"
                         },
                         new
                         {
-                            Id = 27L,
-                            CheckIn = new DateTime(2019, 10, 8, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1820),
-                            CheckOut = new DateTime(2019, 12, 1, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1821),
-                            EmployeeId = "14"
-                        },
-                        new
-                        {
-                            Id = 28L,
-                            CheckIn = new DateTime(2019, 10, 7, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1823),
-                            CheckOut = new DateTime(2019, 12, 2, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1825),
+                            Id = 23L,
+                            CheckIn = new DateTime(2019, 10, 17, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6783),
+                            CheckOut = new DateTime(2019, 12, 2, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6784),
                             EmployeeId = "15"
                         },
                         new
                         {
+                            Id = 24L,
+                            CheckIn = new DateTime(2019, 10, 16, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6787),
+                            CheckOut = new DateTime(2019, 12, 3, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6788),
+                            EmployeeId = "13"
+                        },
+                        new
+                        {
+                            Id = 25L,
+                            CheckIn = new DateTime(2019, 10, 15, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6790),
+                            CheckOut = new DateTime(2019, 12, 4, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6792),
+                            EmployeeId = "18"
+                        },
+                        new
+                        {
+                            Id = 26L,
+                            CheckIn = new DateTime(2019, 10, 14, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6794),
+                            CheckOut = new DateTime(2019, 12, 5, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6795),
+                            EmployeeId = "9"
+                        },
+                        new
+                        {
+                            Id = 27L,
+                            CheckIn = new DateTime(2019, 10, 13, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6798),
+                            CheckOut = new DateTime(2019, 12, 6, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6799),
+                            EmployeeId = "16"
+                        },
+                        new
+                        {
+                            Id = 28L,
+                            CheckIn = new DateTime(2019, 10, 12, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6801),
+                            CheckOut = new DateTime(2019, 12, 7, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6803),
+                            EmployeeId = "1"
+                        },
+                        new
+                        {
                             Id = 29L,
-                            CheckIn = new DateTime(2019, 10, 6, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1827),
-                            CheckOut = new DateTime(2019, 12, 3, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1828),
+                            CheckIn = new DateTime(2019, 10, 11, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6805),
+                            CheckOut = new DateTime(2019, 12, 8, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6807),
                             EmployeeId = "18"
                         },
                         new
                         {
                             Id = 30L,
-                            CheckIn = new DateTime(2019, 10, 5, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1830),
-                            CheckOut = new DateTime(2019, 12, 4, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1832),
-                            EmployeeId = "20"
-                        },
-                        new
-                        {
-                            Id = 31L,
-                            CheckIn = new DateTime(2019, 10, 4, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1834),
-                            CheckOut = new DateTime(2019, 12, 5, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1835),
-                            EmployeeId = "4"
-                        },
-                        new
-                        {
-                            Id = 32L,
-                            CheckIn = new DateTime(2019, 10, 3, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1837),
-                            CheckOut = new DateTime(2019, 12, 6, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1838),
-                            EmployeeId = "4"
-                        },
-                        new
-                        {
-                            Id = 33L,
-                            CheckIn = new DateTime(2019, 10, 2, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1840),
-                            CheckOut = new DateTime(2019, 12, 7, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1842),
+                            CheckIn = new DateTime(2019, 10, 10, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6809),
+                            CheckOut = new DateTime(2019, 12, 9, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6810),
                             EmployeeId = "17"
                         },
                         new
                         {
-                            Id = 34L,
-                            CheckIn = new DateTime(2019, 10, 1, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1844),
-                            CheckOut = new DateTime(2019, 12, 8, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1845),
-                            EmployeeId = "12"
-                        },
-                        new
-                        {
-                            Id = 35L,
-                            CheckIn = new DateTime(2019, 9, 30, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1848),
-                            CheckOut = new DateTime(2019, 12, 9, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1849),
-                            EmployeeId = "18"
-                        },
-                        new
-                        {
-                            Id = 36L,
-                            CheckIn = new DateTime(2019, 9, 29, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1851),
-                            CheckOut = new DateTime(2019, 12, 10, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1853),
-                            EmployeeId = "15"
-                        },
-                        new
-                        {
-                            Id = 37L,
-                            CheckIn = new DateTime(2019, 9, 28, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1855),
-                            CheckOut = new DateTime(2019, 12, 11, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1856),
+                            Id = 31L,
+                            CheckIn = new DateTime(2019, 10, 9, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6812),
+                            CheckOut = new DateTime(2019, 12, 10, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6814),
                             EmployeeId = "7"
                         },
                         new
                         {
-                            Id = 38L,
-                            CheckIn = new DateTime(2019, 9, 27, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1859),
-                            CheckOut = new DateTime(2019, 12, 12, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1860),
-                            EmployeeId = "16"
-                        },
-                        new
-                        {
-                            Id = 39L,
-                            CheckIn = new DateTime(2019, 9, 26, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1862),
-                            CheckOut = new DateTime(2019, 12, 13, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1863),
+                            Id = 32L,
+                            CheckIn = new DateTime(2019, 10, 8, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6816),
+                            CheckOut = new DateTime(2019, 12, 11, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6817),
                             EmployeeId = "14"
                         },
                         new
                         {
-                            Id = 40L,
-                            CheckIn = new DateTime(2019, 9, 25, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1866),
-                            CheckOut = new DateTime(2019, 12, 14, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1867),
-                            EmployeeId = "15"
-                        },
-                        new
-                        {
-                            Id = 41L,
-                            CheckIn = new DateTime(2019, 9, 24, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1869),
-                            CheckOut = new DateTime(2019, 12, 15, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1871),
+                            Id = 33L,
+                            CheckIn = new DateTime(2019, 10, 7, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6820),
+                            CheckOut = new DateTime(2019, 12, 12, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6821),
                             EmployeeId = "2"
                         },
                         new
                         {
-                            Id = 42L,
-                            CheckIn = new DateTime(2019, 9, 23, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1872),
-                            CheckOut = new DateTime(2019, 12, 16, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1874),
-                            EmployeeId = "13"
+                            Id = 34L,
+                            CheckIn = new DateTime(2019, 10, 6, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6823),
+                            CheckOut = new DateTime(2019, 12, 13, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6825),
+                            EmployeeId = "1"
                         },
                         new
                         {
-                            Id = 43L,
-                            CheckIn = new DateTime(2019, 9, 22, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1876),
-                            CheckOut = new DateTime(2019, 12, 17, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1878),
-                            EmployeeId = "12"
-                        },
-                        new
-                        {
-                            Id = 44L,
-                            CheckIn = new DateTime(2019, 9, 21, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1880),
-                            CheckOut = new DateTime(2019, 12, 18, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1881),
-                            EmployeeId = "18"
-                        },
-                        new
-                        {
-                            Id = 45L,
-                            CheckIn = new DateTime(2019, 9, 20, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1883),
-                            CheckOut = new DateTime(2019, 12, 19, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1885),
-                            EmployeeId = "2"
-                        },
-                        new
-                        {
-                            Id = 46L,
-                            CheckIn = new DateTime(2019, 9, 19, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1887),
-                            CheckOut = new DateTime(2019, 12, 20, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1888),
+                            Id = 35L,
+                            CheckIn = new DateTime(2019, 10, 5, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6827),
+                            CheckOut = new DateTime(2019, 12, 14, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6828),
                             EmployeeId = "16"
                         },
                         new
                         {
-                            Id = 47L,
-                            CheckIn = new DateTime(2019, 9, 18, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1890),
-                            CheckOut = new DateTime(2019, 12, 21, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1892),
+                            Id = 36L,
+                            CheckIn = new DateTime(2019, 10, 4, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6830),
+                            CheckOut = new DateTime(2019, 12, 15, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6832),
+                            EmployeeId = "1"
+                        },
+                        new
+                        {
+                            Id = 37L,
+                            CheckIn = new DateTime(2019, 10, 3, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6834),
+                            CheckOut = new DateTime(2019, 12, 16, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6835),
+                            EmployeeId = "9"
+                        },
+                        new
+                        {
+                            Id = 38L,
+                            CheckIn = new DateTime(2019, 10, 2, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6837),
+                            CheckOut = new DateTime(2019, 12, 17, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6839),
+                            EmployeeId = "17"
+                        },
+                        new
+                        {
+                            Id = 39L,
+                            CheckIn = new DateTime(2019, 10, 1, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6841),
+                            CheckOut = new DateTime(2019, 12, 18, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6842),
+                            EmployeeId = "10"
+                        },
+                        new
+                        {
+                            Id = 40L,
+                            CheckIn = new DateTime(2019, 9, 30, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6845),
+                            CheckOut = new DateTime(2019, 12, 19, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6846),
+                            EmployeeId = "14"
+                        },
+                        new
+                        {
+                            Id = 41L,
+                            CheckIn = new DateTime(2019, 9, 29, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6848),
+                            CheckOut = new DateTime(2019, 12, 20, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6849),
                             EmployeeId = "15"
+                        },
+                        new
+                        {
+                            Id = 42L,
+                            CheckIn = new DateTime(2019, 9, 28, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6852),
+                            CheckOut = new DateTime(2019, 12, 21, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6853),
+                            EmployeeId = "9"
+                        },
+                        new
+                        {
+                            Id = 43L,
+                            CheckIn = new DateTime(2019, 9, 27, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6856),
+                            CheckOut = new DateTime(2019, 12, 22, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6857),
+                            EmployeeId = "4"
+                        },
+                        new
+                        {
+                            Id = 44L,
+                            CheckIn = new DateTime(2019, 9, 26, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6859),
+                            CheckOut = new DateTime(2019, 12, 23, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6861),
+                            EmployeeId = "7"
+                        },
+                        new
+                        {
+                            Id = 45L,
+                            CheckIn = new DateTime(2019, 9, 25, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6863),
+                            CheckOut = new DateTime(2019, 12, 24, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6864),
+                            EmployeeId = "14"
+                        },
+                        new
+                        {
+                            Id = 46L,
+                            CheckIn = new DateTime(2019, 9, 24, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6867),
+                            CheckOut = new DateTime(2019, 12, 25, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6868),
+                            EmployeeId = "17"
+                        },
+                        new
+                        {
+                            Id = 47L,
+                            CheckIn = new DateTime(2019, 9, 23, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6870),
+                            CheckOut = new DateTime(2019, 12, 26, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6872),
+                            EmployeeId = "8"
                         },
                         new
                         {
                             Id = 48L,
-                            CheckIn = new DateTime(2019, 9, 17, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1894),
-                            CheckOut = new DateTime(2019, 12, 22, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1895),
-                            EmployeeId = "15"
+                            CheckIn = new DateTime(2019, 9, 22, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6874),
+                            CheckOut = new DateTime(2019, 12, 27, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6875),
+                            EmployeeId = "10"
                         },
                         new
                         {
                             Id = 49L,
-                            CheckIn = new DateTime(2019, 9, 16, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1897),
-                            CheckOut = new DateTime(2019, 12, 23, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1899),
+                            CheckIn = new DateTime(2019, 9, 21, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6878),
+                            CheckOut = new DateTime(2019, 12, 28, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6879),
                             EmployeeId = "4"
                         },
                         new
                         {
                             Id = 50L,
-                            CheckIn = new DateTime(2019, 9, 15, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1901),
-                            CheckOut = new DateTime(2019, 12, 24, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1902),
-                            EmployeeId = "18"
-                        },
-                        new
-                        {
-                            Id = 51L,
-                            CheckIn = new DateTime(2019, 9, 14, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1904),
-                            CheckOut = new DateTime(2019, 12, 25, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1906),
-                            EmployeeId = "16"
-                        },
-                        new
-                        {
-                            Id = 52L,
-                            CheckIn = new DateTime(2019, 9, 13, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1908),
-                            CheckOut = new DateTime(2019, 12, 26, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1909),
-                            EmployeeId = "18"
-                        },
-                        new
-                        {
-                            Id = 53L,
-                            CheckIn = new DateTime(2019, 9, 12, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1911),
-                            CheckOut = new DateTime(2019, 12, 27, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1912),
-                            EmployeeId = "20"
-                        },
-                        new
-                        {
-                            Id = 54L,
-                            CheckIn = new DateTime(2019, 9, 11, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1914),
-                            CheckOut = new DateTime(2019, 12, 28, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1916),
-                            EmployeeId = "16"
-                        },
-                        new
-                        {
-                            Id = 55L,
-                            CheckIn = new DateTime(2019, 9, 10, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1918),
-                            CheckOut = new DateTime(2019, 12, 29, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1919),
-                            EmployeeId = "8"
-                        },
-                        new
-                        {
-                            Id = 56L,
-                            CheckIn = new DateTime(2019, 9, 9, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1921),
-                            CheckOut = new DateTime(2019, 12, 30, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1922),
-                            EmployeeId = "8"
-                        },
-                        new
-                        {
-                            Id = 57L,
-                            CheckIn = new DateTime(2019, 9, 8, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1924),
-                            CheckOut = new DateTime(2019, 12, 31, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1926),
-                            EmployeeId = "7"
-                        },
-                        new
-                        {
-                            Id = 58L,
-                            CheckIn = new DateTime(2019, 9, 7, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1928),
-                            CheckOut = new DateTime(2020, 1, 1, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1929),
-                            EmployeeId = "6"
-                        },
-                        new
-                        {
-                            Id = 59L,
-                            CheckIn = new DateTime(2019, 9, 6, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1931),
-                            CheckOut = new DateTime(2020, 1, 2, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1933),
+                            CheckIn = new DateTime(2019, 9, 20, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6881),
+                            CheckOut = new DateTime(2019, 12, 29, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6883),
                             EmployeeId = "10"
                         },
                         new
                         {
-                            Id = 60L,
-                            CheckIn = new DateTime(2019, 9, 5, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1935),
-                            CheckOut = new DateTime(2020, 1, 3, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1936),
-                            EmployeeId = "20"
-                        },
-                        new
-                        {
-                            Id = 61L,
-                            CheckIn = new DateTime(2019, 9, 4, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1938),
-                            CheckOut = new DateTime(2020, 1, 4, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1940),
+                            Id = 51L,
+                            CheckIn = new DateTime(2019, 9, 19, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6885),
+                            CheckOut = new DateTime(2019, 12, 30, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6886),
                             EmployeeId = "12"
                         },
                         new
                         {
-                            Id = 62L,
-                            CheckIn = new DateTime(2019, 9, 3, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1942),
-                            CheckOut = new DateTime(2020, 1, 5, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1943),
-                            EmployeeId = "16"
+                            Id = 52L,
+                            CheckIn = new DateTime(2019, 9, 18, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6889),
+                            CheckOut = new DateTime(2019, 12, 31, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6890),
+                            EmployeeId = "10"
                         },
                         new
                         {
-                            Id = 63L,
-                            CheckIn = new DateTime(2019, 9, 2, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1945),
-                            CheckOut = new DateTime(2020, 1, 6, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1947),
-                            EmployeeId = "6"
+                            Id = 53L,
+                            CheckIn = new DateTime(2019, 9, 17, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6892),
+                            CheckOut = new DateTime(2020, 1, 1, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6894),
+                            EmployeeId = "14"
                         },
                         new
                         {
-                            Id = 64L,
-                            CheckIn = new DateTime(2019, 9, 1, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1949),
-                            CheckOut = new DateTime(2020, 1, 7, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1950),
-                            EmployeeId = "12"
+                            Id = 54L,
+                            CheckIn = new DateTime(2019, 9, 16, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6896),
+                            CheckOut = new DateTime(2020, 1, 2, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6898),
+                            EmployeeId = "17"
                         },
                         new
                         {
-                            Id = 65L,
-                            CheckIn = new DateTime(2019, 8, 31, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1952),
-                            CheckOut = new DateTime(2020, 1, 8, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1954),
-                            EmployeeId = "8"
-                        },
-                        new
-                        {
-                            Id = 66L,
-                            CheckIn = new DateTime(2019, 8, 30, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1956),
-                            CheckOut = new DateTime(2020, 1, 9, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1957),
-                            EmployeeId = "5"
-                        },
-                        new
-                        {
-                            Id = 67L,
-                            CheckIn = new DateTime(2019, 8, 29, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1959),
-                            CheckOut = new DateTime(2020, 1, 10, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1961),
-                            EmployeeId = "18"
-                        },
-                        new
-                        {
-                            Id = 68L,
-                            CheckIn = new DateTime(2019, 8, 28, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1963),
-                            CheckOut = new DateTime(2020, 1, 11, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1964),
-                            EmployeeId = "18"
-                        },
-                        new
-                        {
-                            Id = 69L,
-                            CheckIn = new DateTime(2019, 8, 27, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1966),
-                            CheckOut = new DateTime(2020, 1, 12, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1968),
-                            EmployeeId = "13"
-                        },
-                        new
-                        {
-                            Id = 70L,
-                            CheckIn = new DateTime(2019, 8, 26, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1970),
-                            CheckOut = new DateTime(2020, 1, 13, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1971),
-                            EmployeeId = "5"
-                        },
-                        new
-                        {
-                            Id = 71L,
-                            CheckIn = new DateTime(2019, 8, 25, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1973),
-                            CheckOut = new DateTime(2020, 1, 14, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1975),
-                            EmployeeId = "9"
-                        },
-                        new
-                        {
-                            Id = 72L,
-                            CheckIn = new DateTime(2019, 8, 24, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1977),
-                            CheckOut = new DateTime(2020, 1, 15, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(1978),
-                            EmployeeId = "4"
-                        },
-                        new
-                        {
-                            Id = 73L,
-                            CheckIn = new DateTime(2019, 8, 23, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2106),
-                            CheckOut = new DateTime(2020, 1, 16, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2107),
+                            Id = 55L,
+                            CheckIn = new DateTime(2019, 9, 15, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6900),
+                            CheckOut = new DateTime(2020, 1, 3, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6901),
                             EmployeeId = "1"
                         },
                         new
                         {
+                            Id = 56L,
+                            CheckIn = new DateTime(2019, 9, 14, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6903),
+                            CheckOut = new DateTime(2020, 1, 4, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6905),
+                            EmployeeId = "16"
+                        },
+                        new
+                        {
+                            Id = 57L,
+                            CheckIn = new DateTime(2019, 9, 13, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6907),
+                            CheckOut = new DateTime(2020, 1, 5, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6908),
+                            EmployeeId = "11"
+                        },
+                        new
+                        {
+                            Id = 58L,
+                            CheckIn = new DateTime(2019, 9, 12, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6910),
+                            CheckOut = new DateTime(2020, 1, 6, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6912),
+                            EmployeeId = "9"
+                        },
+                        new
+                        {
+                            Id = 59L,
+                            CheckIn = new DateTime(2019, 9, 11, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6914),
+                            CheckOut = new DateTime(2020, 1, 7, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6915),
+                            EmployeeId = "9"
+                        },
+                        new
+                        {
+                            Id = 60L,
+                            CheckIn = new DateTime(2019, 9, 10, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6917),
+                            CheckOut = new DateTime(2020, 1, 8, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6919),
+                            EmployeeId = "2"
+                        },
+                        new
+                        {
+                            Id = 61L,
+                            CheckIn = new DateTime(2019, 9, 9, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6921),
+                            CheckOut = new DateTime(2020, 1, 9, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6922),
+                            EmployeeId = "16"
+                        },
+                        new
+                        {
+                            Id = 62L,
+                            CheckIn = new DateTime(2019, 9, 8, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6924),
+                            CheckOut = new DateTime(2020, 1, 10, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6926),
+                            EmployeeId = "1"
+                        },
+                        new
+                        {
+                            Id = 63L,
+                            CheckIn = new DateTime(2019, 9, 7, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6928),
+                            CheckOut = new DateTime(2020, 1, 11, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6929),
+                            EmployeeId = "19"
+                        },
+                        new
+                        {
+                            Id = 64L,
+                            CheckIn = new DateTime(2019, 9, 6, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6931),
+                            CheckOut = new DateTime(2020, 1, 12, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6933),
+                            EmployeeId = "1"
+                        },
+                        new
+                        {
+                            Id = 65L,
+                            CheckIn = new DateTime(2019, 9, 5, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6935),
+                            CheckOut = new DateTime(2020, 1, 13, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6936),
+                            EmployeeId = "5"
+                        },
+                        new
+                        {
+                            Id = 66L,
+                            CheckIn = new DateTime(2019, 9, 4, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6938),
+                            CheckOut = new DateTime(2020, 1, 14, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6940),
+                            EmployeeId = "14"
+                        },
+                        new
+                        {
+                            Id = 67L,
+                            CheckIn = new DateTime(2019, 9, 3, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6942),
+                            CheckOut = new DateTime(2020, 1, 15, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6943),
+                            EmployeeId = "12"
+                        },
+                        new
+                        {
+                            Id = 68L,
+                            CheckIn = new DateTime(2019, 9, 2, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6946),
+                            CheckOut = new DateTime(2020, 1, 16, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6947),
+                            EmployeeId = "10"
+                        },
+                        new
+                        {
+                            Id = 69L,
+                            CheckIn = new DateTime(2019, 9, 1, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6949),
+                            CheckOut = new DateTime(2020, 1, 17, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6951),
+                            EmployeeId = "6"
+                        },
+                        new
+                        {
+                            Id = 70L,
+                            CheckIn = new DateTime(2019, 8, 31, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6953),
+                            CheckOut = new DateTime(2020, 1, 18, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6954),
+                            EmployeeId = "1"
+                        },
+                        new
+                        {
+                            Id = 71L,
+                            CheckIn = new DateTime(2019, 8, 30, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6956),
+                            CheckOut = new DateTime(2020, 1, 19, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6958),
+                            EmployeeId = "17"
+                        },
+                        new
+                        {
+                            Id = 72L,
+                            CheckIn = new DateTime(2019, 8, 29, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6960),
+                            CheckOut = new DateTime(2020, 1, 20, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6961),
+                            EmployeeId = "12"
+                        },
+                        new
+                        {
+                            Id = 73L,
+                            CheckIn = new DateTime(2019, 8, 28, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6964),
+                            CheckOut = new DateTime(2020, 1, 21, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6965),
+                            EmployeeId = "3"
+                        },
+                        new
+                        {
                             Id = 74L,
-                            CheckIn = new DateTime(2019, 8, 22, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2109),
-                            CheckOut = new DateTime(2020, 1, 17, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2111),
+                            CheckIn = new DateTime(2019, 8, 27, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6967),
+                            CheckOut = new DateTime(2020, 1, 22, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6968),
                             EmployeeId = "14"
                         },
                         new
                         {
                             Id = 75L,
-                            CheckIn = new DateTime(2019, 8, 21, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2113),
-                            CheckOut = new DateTime(2020, 1, 18, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2115),
-                            EmployeeId = "20"
+                            CheckIn = new DateTime(2019, 8, 26, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6971),
+                            CheckOut = new DateTime(2020, 1, 23, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6972),
+                            EmployeeId = "8"
                         },
                         new
                         {
                             Id = 76L,
-                            CheckIn = new DateTime(2019, 8, 20, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2117),
-                            CheckOut = new DateTime(2020, 1, 19, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2118),
-                            EmployeeId = "10"
+                            CheckIn = new DateTime(2019, 8, 25, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6974),
+                            CheckOut = new DateTime(2020, 1, 24, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6975),
+                            EmployeeId = "20"
                         },
                         new
                         {
                             Id = 77L,
-                            CheckIn = new DateTime(2019, 8, 19, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2120),
-                            CheckOut = new DateTime(2020, 1, 20, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2122),
-                            EmployeeId = "14"
+                            CheckIn = new DateTime(2019, 8, 24, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6978),
+                            CheckOut = new DateTime(2020, 1, 25, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6979),
+                            EmployeeId = "20"
                         },
                         new
                         {
                             Id = 78L,
-                            CheckIn = new DateTime(2019, 8, 18, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2124),
-                            CheckOut = new DateTime(2020, 1, 21, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2125),
-                            EmployeeId = "20"
+                            CheckIn = new DateTime(2019, 8, 23, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6981),
+                            CheckOut = new DateTime(2020, 1, 26, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6982),
+                            EmployeeId = "8"
                         },
                         new
                         {
                             Id = 79L,
-                            CheckIn = new DateTime(2019, 8, 17, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2128),
-                            CheckOut = new DateTime(2020, 1, 22, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2129),
-                            EmployeeId = "20"
+                            CheckIn = new DateTime(2019, 8, 22, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6985),
+                            CheckOut = new DateTime(2020, 1, 27, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6986),
+                            EmployeeId = "19"
                         },
                         new
                         {
                             Id = 80L,
-                            CheckIn = new DateTime(2019, 8, 16, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2131),
-                            CheckOut = new DateTime(2020, 1, 23, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2132),
-                            EmployeeId = "7"
+                            CheckIn = new DateTime(2019, 8, 21, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6988),
+                            CheckOut = new DateTime(2020, 1, 28, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6990),
+                            EmployeeId = "2"
                         },
                         new
                         {
                             Id = 81L,
-                            CheckIn = new DateTime(2019, 8, 15, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2134),
-                            CheckOut = new DateTime(2020, 1, 24, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2136),
-                            EmployeeId = "9"
+                            CheckIn = new DateTime(2019, 8, 20, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6992),
+                            CheckOut = new DateTime(2020, 1, 29, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6994),
+                            EmployeeId = "1"
                         },
                         new
                         {
                             Id = 82L,
-                            CheckIn = new DateTime(2019, 8, 14, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2138),
-                            CheckOut = new DateTime(2020, 1, 25, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2140),
-                            EmployeeId = "20"
+                            CheckIn = new DateTime(2019, 8, 19, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6995),
+                            CheckOut = new DateTime(2020, 1, 30, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6997),
+                            EmployeeId = "7"
                         },
                         new
                         {
                             Id = 83L,
-                            CheckIn = new DateTime(2019, 8, 13, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2142),
-                            CheckOut = new DateTime(2020, 1, 26, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2143),
-                            EmployeeId = "12"
+                            CheckIn = new DateTime(2019, 8, 18, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(6999),
+                            CheckOut = new DateTime(2020, 1, 31, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7000),
+                            EmployeeId = "17"
                         },
                         new
                         {
                             Id = 84L,
-                            CheckIn = new DateTime(2019, 8, 12, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2145),
-                            CheckOut = new DateTime(2020, 1, 27, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2147),
-                            EmployeeId = "20"
+                            CheckIn = new DateTime(2019, 8, 17, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7003),
+                            CheckOut = new DateTime(2020, 2, 1, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7004),
+                            EmployeeId = "9"
                         },
                         new
                         {
                             Id = 85L,
-                            CheckIn = new DateTime(2019, 8, 11, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2149),
-                            CheckOut = new DateTime(2020, 1, 28, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2151),
+                            CheckIn = new DateTime(2019, 8, 16, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7006),
+                            CheckOut = new DateTime(2020, 2, 2, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7008),
                             EmployeeId = "5"
                         },
                         new
                         {
                             Id = 86L,
-                            CheckIn = new DateTime(2019, 8, 10, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2153),
-                            CheckOut = new DateTime(2020, 1, 29, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2154),
-                            EmployeeId = "7"
+                            CheckIn = new DateTime(2019, 8, 15, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7010),
+                            CheckOut = new DateTime(2020, 2, 3, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7011),
+                            EmployeeId = "17"
                         },
                         new
                         {
                             Id = 87L,
-                            CheckIn = new DateTime(2019, 8, 9, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2156),
-                            CheckOut = new DateTime(2020, 1, 30, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2158),
-                            EmployeeId = "4"
+                            CheckIn = new DateTime(2019, 8, 14, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7013),
+                            CheckOut = new DateTime(2020, 2, 4, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7015),
+                            EmployeeId = "20"
                         },
                         new
                         {
                             Id = 88L,
-                            CheckIn = new DateTime(2019, 8, 8, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2160),
-                            CheckOut = new DateTime(2020, 1, 31, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2161),
-                            EmployeeId = "1"
-                        },
-                        new
-                        {
-                            Id = 89L,
-                            CheckIn = new DateTime(2019, 8, 7, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2163),
-                            CheckOut = new DateTime(2020, 2, 1, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2165),
+                            CheckIn = new DateTime(2019, 8, 13, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7017),
+                            CheckOut = new DateTime(2020, 2, 5, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7018),
                             EmployeeId = "5"
                         },
                         new
                         {
+                            Id = 89L,
+                            CheckIn = new DateTime(2019, 8, 12, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7021),
+                            CheckOut = new DateTime(2020, 2, 6, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7022),
+                            EmployeeId = "20"
+                        },
+                        new
+                        {
                             Id = 90L,
-                            CheckIn = new DateTime(2019, 8, 6, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2167),
-                            CheckOut = new DateTime(2020, 2, 2, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2168),
-                            EmployeeId = "10"
+                            CheckIn = new DateTime(2019, 8, 11, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7070),
+                            CheckOut = new DateTime(2020, 2, 7, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7072),
+                            EmployeeId = "1"
                         },
                         new
                         {
                             Id = 91L,
-                            CheckIn = new DateTime(2019, 8, 5, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2170),
-                            CheckOut = new DateTime(2020, 2, 3, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2172),
-                            EmployeeId = "8"
+                            CheckIn = new DateTime(2019, 8, 10, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7074),
+                            CheckOut = new DateTime(2020, 2, 8, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7076),
+                            EmployeeId = "11"
                         },
                         new
                         {
                             Id = 92L,
-                            CheckIn = new DateTime(2019, 8, 4, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2174),
-                            CheckOut = new DateTime(2020, 2, 4, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2175),
-                            EmployeeId = "1"
+                            CheckIn = new DateTime(2019, 8, 9, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7078),
+                            CheckOut = new DateTime(2020, 2, 9, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7079),
+                            EmployeeId = "20"
                         },
                         new
                         {
                             Id = 93L,
-                            CheckIn = new DateTime(2019, 8, 3, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2178),
-                            CheckOut = new DateTime(2020, 2, 5, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2179),
-                            EmployeeId = "6"
+                            CheckIn = new DateTime(2019, 8, 8, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7082),
+                            CheckOut = new DateTime(2020, 2, 10, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7083),
+                            EmployeeId = "9"
                         },
                         new
                         {
                             Id = 94L,
-                            CheckIn = new DateTime(2019, 8, 2, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2181),
-                            CheckOut = new DateTime(2020, 2, 6, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2182),
-                            EmployeeId = "14"
+                            CheckIn = new DateTime(2019, 8, 7, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7085),
+                            CheckOut = new DateTime(2020, 2, 11, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7087),
+                            EmployeeId = "9"
                         },
                         new
                         {
                             Id = 95L,
-                            CheckIn = new DateTime(2019, 8, 1, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2185),
-                            CheckOut = new DateTime(2020, 2, 7, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2186),
-                            EmployeeId = "3"
+                            CheckIn = new DateTime(2019, 8, 6, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7089),
+                            CheckOut = new DateTime(2020, 2, 12, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7090),
+                            EmployeeId = "18"
                         },
                         new
                         {
                             Id = 96L,
-                            CheckIn = new DateTime(2019, 7, 31, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2188),
-                            CheckOut = new DateTime(2020, 2, 8, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2189),
-                            EmployeeId = "6"
+                            CheckIn = new DateTime(2019, 8, 5, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7093),
+                            CheckOut = new DateTime(2020, 2, 13, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7094),
+                            EmployeeId = "15"
                         },
                         new
                         {
                             Id = 97L,
-                            CheckIn = new DateTime(2019, 7, 30, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2192),
-                            CheckOut = new DateTime(2020, 2, 9, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2193),
-                            EmployeeId = "7"
+                            CheckIn = new DateTime(2019, 8, 4, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7097),
+                            CheckOut = new DateTime(2020, 2, 14, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7098),
+                            EmployeeId = "11"
                         },
                         new
                         {
                             Id = 98L,
-                            CheckIn = new DateTime(2019, 7, 29, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2195),
-                            CheckOut = new DateTime(2020, 2, 10, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2196),
-                            EmployeeId = "1"
+                            CheckIn = new DateTime(2019, 8, 3, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7100),
+                            CheckOut = new DateTime(2020, 2, 15, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7102),
+                            EmployeeId = "4"
                         },
                         new
                         {
                             Id = 99L,
-                            CheckIn = new DateTime(2019, 7, 28, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2198),
-                            CheckOut = new DateTime(2020, 2, 11, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2200),
-                            EmployeeId = "10"
+                            CheckIn = new DateTime(2019, 8, 2, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7104),
+                            CheckOut = new DateTime(2020, 2, 16, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7105),
+                            EmployeeId = "3"
                         },
                         new
                         {
                             Id = 100L,
-                            CheckIn = new DateTime(2019, 7, 27, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2202),
-                            CheckOut = new DateTime(2020, 2, 12, 22, 56, 26, 296, DateTimeKind.Local).AddTicks(2204),
-                            EmployeeId = "17"
+                            CheckIn = new DateTime(2019, 8, 1, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7107),
+                            CheckOut = new DateTime(2020, 2, 17, 21, 3, 47, 848, DateTimeKind.Local).AddTicks(7108),
+                            EmployeeId = "1"
                         });
                 });
 
@@ -1002,103 +1002,103 @@ namespace Punchclock.Web.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "aec81e47-b49a-43f4-be8e-dcec5768434b",
+                            ConcurrencyStamp = "445b5c7f-67cf-42c9-8b24-547f8da3ce68",
                             Email = "test1@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5aa719f4-c0af-4e3d-9804-0b55325d1bff",
-                            TwoFactorEnabled = false,
-                            DepartmentId = 6L
-                        },
-                        new
-                        {
-                            Id = "2",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "f2e14e8d-4c35-4bc3-adeb-a6c6c9c6cfa9",
-                            Email = "test2@test.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "d92efa4e-e62c-49f3-9b0f-6b1c6c392891",
-                            TwoFactorEnabled = false,
-                            DepartmentId = 4L
-                        },
-                        new
-                        {
-                            Id = "3",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "ba0a452f-ddb4-44a0-b616-a25d9f232474",
-                            Email = "test3@test.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "57c58da5-210c-46cf-a297-30c77900504b",
+                            SecurityStamp = "cfbb0b13-3e21-47e5-9234-5119b680351f",
                             TwoFactorEnabled = false,
                             DepartmentId = 2L
                         },
                         new
                         {
+                            Id = "2",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "6ee6100a-6e95-421e-b213-0e1ec427fd4b",
+                            Email = "test2@test.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "b079294b-0e1f-4581-93be-96897aad72f3",
+                            TwoFactorEnabled = false,
+                            DepartmentId = 3L
+                        },
+                        new
+                        {
+                            Id = "3",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "9ba8a0cb-f587-4c52-b25b-d183065e9312",
+                            Email = "test3@test.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "fd19ba47-6b6e-4dad-ac79-155c6f272b1f",
+                            TwoFactorEnabled = false,
+                            DepartmentId = 1L
+                        },
+                        new
+                        {
                             Id = "4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ddd91316-2f96-4596-ba23-108e94042502",
+                            ConcurrencyStamp = "3590544f-9017-493b-b383-d0603a46bbce",
                             Email = "test4@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6016f6b7-1a53-4609-83c5-7e2ab07ff90d",
-                            TwoFactorEnabled = false,
-                            DepartmentId = 5L
-                        },
-                        new
-                        {
-                            Id = "5",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "e2cb5bda-c101-4b6c-b78a-0fd937e00529",
-                            Email = "test5@test.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "e3723920-1ad4-422b-94ea-2ec62399e180",
+                            SecurityStamp = "81c31b16-37b7-4229-b8b0-8c20c7a3c696",
                             TwoFactorEnabled = false,
                             DepartmentId = 6L
                         },
                         new
                         {
+                            Id = "5",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "321706c5-d1a7-4928-a28a-ffa2ffe7c517",
+                            Email = "test5@test.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "ce3aa611-8935-49af-8b65-bffa1a9c7601",
+                            TwoFactorEnabled = false,
+                            DepartmentId = 2L
+                        },
+                        new
+                        {
                             Id = "6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e27faaee-c4e9-449b-b340-daa4b5189f45",
+                            ConcurrencyStamp = "0f4e2802-02f9-4e4e-9e51-0557fa224a38",
                             Email = "test6@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4d0ee317-7df2-4fa6-8624-25a71ae804db",
-                            TwoFactorEnabled = false,
-                            DepartmentId = 4L
-                        },
-                        new
-                        {
-                            Id = "7",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "0b0fc1a2-aaf2-47cf-805e-f7e90bee9536",
-                            Email = "test7@test.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "c363e46b-4878-4ce4-bae2-ae93332d31ad",
+                            SecurityStamp = "fa78b5e6-9c6f-4805-8757-98eaf09352f9",
                             TwoFactorEnabled = false,
                             DepartmentId = 5L
                         },
                         new
                         {
+                            Id = "7",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "8c23b7fc-97ff-435c-8d94-968876a130a2",
+                            Email = "test7@test.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "cc8218a7-02b8-4e8c-9620-b29789593ac4",
+                            TwoFactorEnabled = false,
+                            DepartmentId = 2L
+                        },
+                        new
+                        {
                             Id = "8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ff164abf-6a49-4a14-b505-0bb6ca858f76",
+                            ConcurrencyStamp = "2bda2950-906b-4252-ac43-ee7f9000cfb6",
                             Email = "test8@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d9d4b4cd-e7de-45f5-bb34-ad4a3dd70bc8",
+                            SecurityStamp = "59eafbcd-b763-4e49-a998-ac645845ed51",
                             TwoFactorEnabled = false,
                             DepartmentId = 1L
                         },
@@ -1106,38 +1106,38 @@ namespace Punchclock.Web.Migrations
                         {
                             Id = "9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "944cb71d-aa7d-4cb2-bee9-b210f93ee4f5",
+                            ConcurrencyStamp = "d889ad2b-01c3-47de-9a78-727398470468",
                             Email = "test9@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "74d57505-0670-4a71-9651-b9727a95a7f8",
+                            SecurityStamp = "278d6cc0-7541-40d0-b0b4-e65d7cf7d436",
                             TwoFactorEnabled = false,
-                            DepartmentId = 3L
+                            DepartmentId = 6L
                         },
                         new
                         {
                             Id = "10",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2e8c8c33-b0b8-4b91-a1a6-e58e5842b7ee",
+                            ConcurrencyStamp = "730e7864-d560-4f98-8422-8ac9915366a7",
                             Email = "test10@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a77571f0-30b2-461e-aed8-94dda18b8504",
+                            SecurityStamp = "10790dbf-1051-430f-b977-48509a7bafcd",
                             TwoFactorEnabled = false,
-                            DepartmentId = 3L
+                            DepartmentId = 1L
                         },
                         new
                         {
                             Id = "11",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ef0c5e31-fd3f-49d0-a30d-37fa1737217e",
+                            ConcurrencyStamp = "ac491d1c-668d-4aec-8210-0f0434abfcb5",
                             Email = "test11@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9e019954-d65c-4fe0-b4bb-b3ebf52071c0",
+                            SecurityStamp = "acdcec44-509b-4e2c-bf60-f2bcda7c01dc",
                             TwoFactorEnabled = false,
                             DepartmentId = 3L
                         },
@@ -1145,116 +1145,116 @@ namespace Punchclock.Web.Migrations
                         {
                             Id = "12",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d4e70aeb-f5fc-4ea5-b20c-823f8a370420",
+                            ConcurrencyStamp = "bc35921f-0919-40c8-928b-c78927dfd9b6",
                             Email = "test12@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4e7696bc-c57e-4d1e-9308-cb8144657c35",
+                            SecurityStamp = "8e01eac8-0070-4856-824f-441fb4208efd",
                             TwoFactorEnabled = false,
-                            DepartmentId = 2L
+                            DepartmentId = 6L
                         },
                         new
                         {
                             Id = "13",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "40997aa0-ff2b-4417-8c5c-d2b2073450ec",
+                            ConcurrencyStamp = "83dfcac9-c079-4288-bd4f-e79b748c5141",
                             Email = "test13@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "909da6c9-0a91-4d64-a52e-c39d54d7869b",
+                            SecurityStamp = "91307e18-e76e-49dd-8a64-a341705a7331",
                             TwoFactorEnabled = false,
-                            DepartmentId = 2L
+                            DepartmentId = 4L
                         },
                         new
                         {
                             Id = "14",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f87129cf-05bf-451b-bfac-712c61f8bbc3",
+                            ConcurrencyStamp = "b86006e1-380c-4d36-a5bf-e26f9b399220",
                             Email = "test14@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3dbd6881-4aaa-43a0-b0db-ac955e4df1d2",
+                            SecurityStamp = "962cfd65-5498-4a88-b49e-25199a87b66b",
                             TwoFactorEnabled = false,
-                            DepartmentId = 1L
+                            DepartmentId = 2L
                         },
                         new
                         {
                             Id = "15",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0bba95f0-fae2-483f-8034-1b2d087ab3bc",
+                            ConcurrencyStamp = "0ebb1477-27d2-4d1e-9ed5-88a4eec0485a",
                             Email = "test15@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a9362a26-6ea9-401d-b3d7-ba0fc95006f2",
+                            SecurityStamp = "8e6d9112-2d26-4c76-b40f-2f771343a0fe",
                             TwoFactorEnabled = false,
-                            DepartmentId = 4L
+                            DepartmentId = 5L
                         },
                         new
                         {
                             Id = "16",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ba6e804a-2dbc-421d-9331-dff8ee0cb54a",
+                            ConcurrencyStamp = "bf23a436-1642-4a57-8a9d-a1a702a09f5f",
                             Email = "test16@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f98c8b1b-8c37-4145-a9e7-843aee1cffc1",
+                            SecurityStamp = "877299d1-a4b2-41ca-b5d4-14257db701d1",
                             TwoFactorEnabled = false,
-                            DepartmentId = 5L
+                            DepartmentId = 1L
                         },
                         new
                         {
                             Id = "17",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ae97d17d-c0dd-4d33-9838-c224edbf8570",
+                            ConcurrencyStamp = "a0e9f110-d360-478b-9066-f9b9566eb9f5",
                             Email = "test17@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fb98ad7c-843e-42d9-aa3a-7e9310a26052",
+                            SecurityStamp = "5b479e00-95d8-4fa0-9de5-5f299253c849",
                             TwoFactorEnabled = false,
-                            DepartmentId = 4L
+                            DepartmentId = 1L
                         },
                         new
                         {
                             Id = "18",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "47f278e9-0d52-43d5-8b72-fd601f9f6a87",
+                            ConcurrencyStamp = "fcab0c5b-81c0-4a79-b418-97aadc5c877c",
                             Email = "test18@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "13bf1f47-4dca-405d-b950-bc413c9e421a",
+                            SecurityStamp = "9f7b97be-6fa8-413f-ae4e-886fa53d7b5b",
                             TwoFactorEnabled = false,
-                            DepartmentId = 3L
+                            DepartmentId = 1L
                         },
                         new
                         {
                             Id = "19",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "da964cad-1cb9-4303-b325-eb4937d5751e",
+                            ConcurrencyStamp = "d5a9e652-f4f1-4599-a97d-7aa99822195e",
                             Email = "test19@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f7311b23-28d0-4346-a056-4cb0e9337ab5",
+                            SecurityStamp = "6f05f910-c3fe-48d1-9b48-8c3ee6e43f78",
                             TwoFactorEnabled = false,
-                            DepartmentId = 5L
+                            DepartmentId = 6L
                         },
                         new
                         {
                             Id = "20",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3f2b6106-cb27-4895-950f-ba18e99e94eb",
+                            ConcurrencyStamp = "7d2f47a3-c3f2-419f-b293-f5e4c2bd82d2",
                             Email = "test20@test.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6b5ea6e3-8edc-40c9-b1f1-a59e52ca0411",
+                            SecurityStamp = "22bb9b5d-07c1-4b8f-8bb4-433b7d6012f3",
                             TwoFactorEnabled = false,
                             DepartmentId = 3L
                         });

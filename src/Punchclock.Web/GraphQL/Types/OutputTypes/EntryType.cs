@@ -9,7 +9,7 @@ namespace Punchclock.Web.GraphQL.Types.OutputTypes
         {
             Field(x => x.Id);
             Field<DateTimeGraphType>("checkIn");
-            Field<DateTimeGraphType>("checkOut");
+            Field(x => x.CheckOut, type: typeof(DateTimeGraphType), nullable: true);
             Field<EmployeeType>("employee");
         }
     }

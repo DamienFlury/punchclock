@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Security.Claims;
 using GraphQL;
@@ -28,6 +29,21 @@ namespace Punchclock.Web.GraphQL.Types
             Field<ListGraphType<DepartmentType>>("departments", resolve: ctx =>
                 context.Departments.Include(d => d.Employees)
                     .ThenInclude(e => e.Entries));
+
+            Field<DateTimeGraphType>("lastCheckIn", resolve: ctx =>
+            {
+                var user = (ClaimsPrincipal)ctx.UserContext;
+                var isUserAuthenticated = ((ClaimsIdentity) user.Identity).IsAuthenticated;
+                if (!isUserAuthenticated) throw new ExecutionError("Not authenticated");
+                
+                var lastEntry = context.Entries.Where(e => e.Employee.UserName == user.Identity.Name).OrderByDescending(e => e.Id).FirstOrDefault();
+
+                return lastEntry switch
+                {
+                    { CheckOut: null, CheckIn: var checkIn } => checkIn as DateTime?,
+                    _ => null
+                };
+            });
         }
     }
 }

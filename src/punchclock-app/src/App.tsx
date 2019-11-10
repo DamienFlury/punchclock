@@ -62,6 +62,7 @@ const AuthenticatedRoute: React.FC<AuthenticatedRouteProps> = ({
 
 const App: React.FC = () => {
   const { isAuthenticated } = useContext(AuthContext);
+  console.log(client);
   return (
 
     <StylesProvider injectFirst>

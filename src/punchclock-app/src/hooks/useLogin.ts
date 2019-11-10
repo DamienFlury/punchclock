@@ -14,6 +14,19 @@ const useLogin = (email: string, password: string) => {
       email,
       password,
     },
+    update(cache, { data: createToken }) {
+      const { token, expiration } = createToken.createToken;
+      console.log('token', token);
+      cache.writeQuery({
+        query: gql`
+          query {
+            token
+            expiration
+          }
+        `,
+        data: { token, expiration },
+      });
+    },
   });
 
   return execute;

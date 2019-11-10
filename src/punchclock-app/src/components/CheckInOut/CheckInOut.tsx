@@ -1,21 +1,51 @@
-import React, { useState } from 'react';
-import { Paper, Button } from '@material-ui/core';
+import React from 'react';
+import {
+  Paper, Button, CircularProgress, Typography,
+} from '@material-ui/core';
+import { gql } from 'apollo-boost';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 
 const CheckInOut: React.FC = () => {
-  const [isCheckedIn, setIsCheckedIn] = useState(false);
+  const {
+    data, error, loading, refetch,
+  } = useQuery<{ lastCheckIn: Date | null }>(gql`
+  query {
+    lastCheckIn
+  }`);
 
-  const handleCheckIn = () => {
-    setIsCheckedIn(true);
-  };
-  const handleCheckOut = () => {
-    setIsCheckedIn(false);
+  const [checkInOut] = useMutation(gql`
+    mutation CheckIn {
+      checkInOut {
+        id
+      }
+    },
+  `);
+  if (loading) {
+    return <CircularProgress />;
+  }
+  if (error || !data) {
+    return <div>Error</div>;
+  }
+
+  const handleCheckInOut = async () => {
+    await checkInOut();
+    await refetch();
   };
 
   return (
     <Paper>
-      {isCheckedIn
-        ? <Button onClick={handleCheckOut}>Check out</Button>
-        : <Button onClick={handleCheckIn}>Check in</Button>}
+      {data.lastCheckIn
+        ? (
+          <>
+            <Typography>
+Last check in:
+              {' '}
+              {data.lastCheckIn}
+            </Typography>
+            <Button onClick={handleCheckInOut}>Check out</Button>
+          </>
+        )
+        : <Button onClick={handleCheckInOut}>Check in</Button>}
     </Paper>
   );
 };
