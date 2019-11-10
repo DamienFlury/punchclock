@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Paper, Button, CircularProgress, Typography,
 } from '@material-ui/core';
 import { gql } from 'apollo-boost';
 import { useMutation, useQuery } from '@apollo/react-hooks';
+import { formatDistance } from 'date-fns';
 
 const CheckInOut: React.FC = () => {
   const {
@@ -12,6 +13,17 @@ const CheckInOut: React.FC = () => {
   query {
     lastCheckIn
   }`);
+
+  const [now, setNow] = useState(new Date());
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setNow(new Date());
+    }, 1000);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [now]);
 
   const [checkInOut] = useMutation(gql`
     mutation CheckIn {
@@ -40,7 +52,9 @@ const CheckInOut: React.FC = () => {
             <Typography>
 Last check in:
               {' '}
-              {data.lastCheckIn}
+              {formatDistance(new Date(data.lastCheckIn), now)}
+              {' '}
+ago
             </Typography>
             <Button onClick={handleCheckInOut}>Check out</Button>
           </>

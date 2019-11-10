@@ -27,9 +27,11 @@ const NavBar: React.FC = () => {
         </StyledLink>
         {isAuthenticated
         && (
-        <StyledLink to="/entries">
-          <Button color="inherit">Entries</Button>
-        </StyledLink>
+          <>
+            <StyledLink to="/entries">
+              <Button color="inherit">Entries</Button>
+            </StyledLink>
+          </>
         )}
         <Spacer />
         {isAuthenticated ? <Button color="secondary" variant="contained" onClick={logout}>Logout</Button>

@@ -27,6 +27,11 @@ const resolvers: Resolvers = {
     checkIn: (parent) => new Date(parent.checkIn),
     checkOut: (parent) => new Date(parent.checkOut),
   },
+  Query: {
+    lastCheckIn(obj) {
+      return new Date(obj);
+    },
+  },
 };
 
 const client = new ApolloClient({
