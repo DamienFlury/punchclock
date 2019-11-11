@@ -18,11 +18,11 @@ const Welcome: React.FC = () => {
     <div className={classes.wrapper}>
       <Typography variant="h2" className={classes.title}>Welcome to Punchclock!</Typography>
       <Typography>
-        <MaterialLink component={Link} to="login">Login</MaterialLink>
+        <MaterialLink component={Link} to="/login">Login</MaterialLink>
         {' '}
 or
         {' '}
-        <MaterialLink component={Link} to="">create an account</MaterialLink>
+        <MaterialLink component={Link} to="/sign-up">create an account</MaterialLink>
         {' '}
 to get started
       </Typography>

@@ -10,10 +10,10 @@ import {
 import { StylesProvider } from '@material-ui/core/styles';
 import Home from './components/Home';
 import NavBar from './components/NavBar';
-import Login from './components/Login';
 import Welcome from './components/Welcome';
 import { AuthContext } from './providers/AuthProvider';
 import Entries from './components/Entries';
+import AuthForm from './components/AuthForm';
 
 const theme = createMuiTheme({
   palette: {
@@ -26,11 +26,6 @@ const resolvers: Resolvers = {
   EntryType: {
     checkIn: (parent) => new Date(parent.checkIn),
     checkOut: (parent) => new Date(parent.checkOut),
-  },
-  Query: {
-    lastCheckIn(obj) {
-      return new Date(obj);
-    },
   },
 };
 
@@ -67,9 +62,7 @@ const AuthenticatedRoute: React.FC<AuthenticatedRouteProps> = ({
 
 const App: React.FC = () => {
   const { isAuthenticated } = useContext(AuthContext);
-  console.log(client);
   return (
-
     <StylesProvider injectFirst>
       <ApolloProvider client={client}>
         <MuiThemeProvider theme={theme}>
@@ -81,7 +74,10 @@ const App: React.FC = () => {
                 {isAuthenticated ? <Home /> : <Welcome />}
               </Route>
               <Route path="/Login">
-                <Login />
+                <AuthForm isLogin />
+              </Route>
+              <Route path="/sign-up">
+                <AuthForm />
               </Route>
               <AuthenticatedRoute isAuthenticated={isAuthenticated} path="/entries">
                 <Entries />

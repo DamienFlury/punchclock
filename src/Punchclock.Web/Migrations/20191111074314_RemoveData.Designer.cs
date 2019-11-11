@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Punchclock.Web.Data;
 
 namespace Punchclock.Web.Migrations
 {
     [DbContext(typeof(PunchclockContext))]
-    partial class PunchclockContextModelSnapshot : ModelSnapshot
+    [Migration("20191111074314_RemoveData")]
+    partial class RemoveData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -226,23 +228,6 @@ namespace Punchclock.Web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Departments");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            Title = "Software Engineering"
-                        },
-                        new
-                        {
-                            Id = 2L,
-                            Title = "IT Support"
-                        },
-                        new
-                        {
-                            Id = 3L,
-                            Title = "Creation"
-                        });
                 });
 
             modelBuilder.Entity("Punchclock.Web.Data.Entities.Entry", b =>
