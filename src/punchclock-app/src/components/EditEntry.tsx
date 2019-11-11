@@ -101,7 +101,7 @@ const EditEntry: React.FC = () => {
   }
 
   if (error || !data || empError || !empData) {
-    return <div>OOF</div>;
+    return <Typography>Error</Typography>;
   }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {

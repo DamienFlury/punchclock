@@ -75,6 +75,19 @@ namespace Punchclock.Web.GraphQL.Types
                     await context.SaveChangesAsync();
                     return dbEntry;
                 });
+
+            FieldAsync<BooleanGraphType>("deleteUser",
+                resolve: async ctx =>
+                {
+                    var user = (ClaimsPrincipal) ctx.UserContext;
+                    var isUserAuthenticated = ((ClaimsIdentity) user.Identity).IsAuthenticated;
+                    if (!isUserAuthenticated) throw new ExecutionError("Not authenticated");
+                    var employee = await context.Employees.FirstOrDefaultAsync(e => e.UserName == user.Identity.Name);
+                    context.Entries.RemoveRange(context.Entries.Where(e => e.EmployeeId == employee.Id));
+                    await context.SaveChangesAsync();
+                    await userManager.DeleteAsync(employee);
+                    return true;
+                });
             
             FieldAsync<JwtOutputType>("createUser",
                 arguments: new QueryArguments(new QueryArgument<UserInputType> {Name = "user"}),
@@ -135,14 +148,14 @@ namespace Punchclock.Web.GraphQL.Types
                     
                     if (lastEntry != null && lastEntry.CheckOut is null)
                     {
-                        lastEntry.CheckOut = DateTime.UtcNow;
+                        lastEntry.CheckOut = DateTime.Now;
                         await context.SaveChangesAsync();
                         return lastEntry;
                     }
 
                     var entry = new Entry
                     {
-                        CheckIn = DateTime.UtcNow,
+                        CheckIn = DateTime.Now,
                         EmployeeId = employee.Id
                     };
                     await context.Entries.AddAsync(entry);

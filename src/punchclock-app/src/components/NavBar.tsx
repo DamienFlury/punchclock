@@ -16,7 +16,7 @@ const StyledLink = styled(NavLink)`
 `;
 
 const NavBar: React.FC = () => {
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const { isAuthenticated, logout, isAdmin } = useContext(AuthContext);
 
   return (
     <AppBar position="sticky">
@@ -25,7 +25,7 @@ const NavBar: React.FC = () => {
         <StyledLink to="/">
           <Button color="inherit">Home</Button>
         </StyledLink>
-        {isAuthenticated
+        {isAuthenticated && !isAdmin
         && (
           <>
             <StyledLink to="/entries">

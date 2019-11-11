@@ -9,7 +9,7 @@ using Punchclock.Web.Data;
 namespace Punchclock.Web.Migrations
 {
     [DbContext(typeof(PunchclockContext))]
-    [Migration("20191111100604_Initial")]
+    [Migration("20191111151716_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -153,6 +153,7 @@ namespace Punchclock.Web.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -259,6 +260,7 @@ namespace Punchclock.Web.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("EmployeeId")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -332,7 +334,9 @@ namespace Punchclock.Web.Migrations
                 {
                     b.HasOne("Punchclock.Web.Data.Entities.Employee", "Employee")
                         .WithMany("Entries")
-                        .HasForeignKey("EmployeeId");
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

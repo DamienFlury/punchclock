@@ -27,7 +27,7 @@ namespace Punchclock.Web.Migrations
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<string>(nullable: true)
+                    Title = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -180,7 +180,7 @@ namespace Punchclock.Web.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     CheckIn = table.Column<DateTime>(nullable: false),
                     CheckOut = table.Column<DateTime>(nullable: true),
-                    EmployeeId = table.Column<string>(nullable: true)
+                    EmployeeId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -190,7 +190,7 @@ namespace Punchclock.Web.Migrations
                         column: x => x.EmployeeId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
