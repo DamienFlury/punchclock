@@ -37,7 +37,8 @@ namespace Punchclock.Web.GraphQL.Types
                 {
                     new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim(JwtRegisteredClaimNames.UniqueName, user.Email)
+                    new Claim(JwtRegisteredClaimNames.UniqueName, user.Email),
+                    new Claim(ClaimTypes.Role, employee.Email == "root@root.com" ? "admin" : "user"),
                 };
 
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Tokens:Key"]));
@@ -56,6 +57,24 @@ namespace Punchclock.Web.GraphQL.Types
                     Expiration = token.ValidTo,
                 };
             }
+
+            FieldAsync<EntryType>("updateEntry",
+                arguments: new QueryArguments(new QueryArgument<UpdateEntryInputType> {Name = "entry"}),
+                resolve: async ctx =>
+                {
+                    var user = (ClaimsPrincipal)ctx.UserContext;
+                    var isUserAuthenticated = ((ClaimsIdentity) user.Identity).IsAuthenticated;
+                    if (!isUserAuthenticated) throw new ExecutionError("Not authenticated");
+                    if(!user.IsInRole("admin")) throw new ExecutionError("Only admins can edit entries");
+                    
+                    var entry = ctx.GetArgument<UpdateEntryInput>("entry");
+                    var dbEntry = await context.Entries.FirstOrDefaultAsync(e => e.Id == entry.Id);
+                    dbEntry.EmployeeId = entry.EmployeeId ?? dbEntry.EmployeeId;
+                    dbEntry.CheckIn = entry.CheckIn ?? dbEntry.CheckIn;
+                    dbEntry.CheckOut = entry.CheckOut ?? dbEntry.CheckOut;
+                    await context.SaveChangesAsync();
+                    return dbEntry;
+                });
             
             FieldAsync<JwtOutputType>("createUser",
                 arguments: new QueryArguments(new QueryArgument<UserInputType> {Name = "user"}),

@@ -12,6 +12,7 @@ type Entry = {
 }
 
 const EntriesList: React.FC = () => {
+  // const { isAdmin } = useContext(AuthContext);
   const {
     error, loading, data, refetch,
   } = useQuery<{ entries: Entry[] }>(gql`

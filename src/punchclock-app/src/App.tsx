@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import './App.css';
 import { MuiThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core';
-import { blue } from '@material-ui/core/colors';
+import {
+  blue, red, grey, pink,
+} from '@material-ui/core/colors';
 import ApolloClient, { Resolvers } from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import {
@@ -14,13 +16,8 @@ import Welcome from './components/Welcome';
 import { AuthContext } from './providers/AuthProvider';
 import Entries from './components/Entries';
 import AuthForm from './components/AuthForm';
+import EditEntry from './components/EditEntry';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: blue,
-    type: 'dark',
-  },
-});
 
 const resolvers: Resolvers = {
   EntryType: {
@@ -61,7 +58,15 @@ const AuthenticatedRoute: React.FC<AuthenticatedRouteProps> = ({
 );
 
 const App: React.FC = () => {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, isAdmin } = useContext(AuthContext);
+  const theme = createMuiTheme({
+    palette: {
+      primary: isAdmin ? red : blue,
+      type: 'dark',
+      secondary: isAdmin ? grey : pink,
+    },
+  });
+
   return (
     <StylesProvider injectFirst>
       <ApolloProvider client={client}>
@@ -82,6 +87,9 @@ const App: React.FC = () => {
               <AuthenticatedRoute isAuthenticated={isAuthenticated} path="/entries">
                 <Entries />
               </AuthenticatedRoute>
+              <Route path="/edit-entry/:id">
+                <EditEntry />
+              </Route>
             </Switch>
           </BrowserRouter>
         </MuiThemeProvider>

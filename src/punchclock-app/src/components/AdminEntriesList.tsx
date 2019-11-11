@@ -4,13 +4,24 @@ import { gql } from 'apollo-boost';
 import {
   Typography, Paper, CircularProgress, Table, TableHead, TableRow, TableCell, TableBody, Button,
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
+type Employee = {
+    id: string,
+    email: string
+}
 type Entry = {
     id: number,
     checkIn: Date,
     checkOut: Date,
-    employeeId: number,
+    employee: Employee,
 }
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
 
 const AdminEntriesList: React.FC = () => {
   const {
@@ -21,7 +32,9 @@ const AdminEntriesList: React.FC = () => {
             id
             checkIn
             checkOut
-            employeeId
+            employee {
+              email
+            }
           }
         }
       `);
@@ -52,6 +65,12 @@ const AdminEntriesList: React.FC = () => {
             <TableCell>
               <Typography>Check out</Typography>
             </TableCell>
+            <TableCell>
+              <Typography>Employee</Typography>
+            </TableCell>
+            <TableCell>
+              <Typography>Edit</Typography>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -67,7 +86,12 @@ const AdminEntriesList: React.FC = () => {
                 <Typography>{e.checkOut}</Typography>
               </TableCell>
               <TableCell>
-                <Button color="primary">Edit</Button>
+                <Typography>{e.employee.email}</Typography>
+              </TableCell>
+              <TableCell>
+                <StyledLink to={`/edit-entry/${e.id}`}>
+                  <Button color="primary">Edit</Button>
+                </StyledLink>
               </TableCell>
             </TableRow>
           ))}

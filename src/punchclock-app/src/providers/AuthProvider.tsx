@@ -7,7 +7,8 @@ type State = {
   expiration: Date | null,
   authenticate: (token: string, expiration: string) => void,
   isAuthenticated: boolean,
-  logout: () => void;
+  logout: () => void,
+  isAdmin: boolean
 }
 
 const initialState: State = {
@@ -16,6 +17,7 @@ const initialState: State = {
   authenticate: () => {},
   isAuthenticated: false,
   logout: () => {},
+  isAdmin: false,
 };
 
 
@@ -44,11 +46,22 @@ const AuthProvider: React.FC = ({ children }) => {
     setExpiration(new Date(expiration));
   };
 
+  let isAdmin = false;
+
+  if (t) {
+    const jwtData = t.split('.')[1];
+    const decodedJwtJsonData = window.atob(jwtData);
+    const decodedJwtData = JSON.parse(decodedJwtJsonData);
+    if (decodedJwtData['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] === 'admin') {
+      isAdmin = true;
+    }
+  }
+
   const isAuthenticated = !!t && !!e && e > new Date();
 
   return (
     <AuthContext.Provider value={{
-      token: t, expiration: e, authenticate, isAuthenticated, logout,
+      token: t, expiration: e, authenticate, isAuthenticated, logout, isAdmin,
     }}
     >
       {children}

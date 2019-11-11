@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
 import {
-  TextField, Button, Paper, Typography,
+  TextField, Button, Paper, Typography, Select, MenuItem, FormControl, InputLabel,
 } from '@material-ui/core';
 import styled from 'styled-components';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
@@ -37,6 +37,11 @@ const CREATE_USER = gql`
   }
 `;
 
+type Department = {
+  id: number,
+  title: string
+}
+
 
 type Props = {
   isLogin?: boolean
@@ -46,9 +51,19 @@ const AuthForm: React.FC<Props> = ({ isLogin = false }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [departmentId, setDepartmentId] = useState(1);
+
   const { push } = useHistory();
 
   const [login, { error }] = useMutation(isLogin ? CREATE_TOKEN : CREATE_USER);
+
+  const { data } = useQuery<{ departments: Department[] }>(gql`
+  query {
+    departments {
+      id
+      title
+    }
+  }`);
 
 
   const { authenticate } = useContext(AuthContext);
@@ -57,17 +72,18 @@ const AuthForm: React.FC<Props> = ({ isLogin = false }) => {
   return (
     <form onSubmit={async (e) => {
       e.preventDefault();
-      const body = await login({
-        variables: {
-          email,
-          password,
-        },
-      });
-      if (!error) {
+      try {
+        const body = await login({
+          variables: {
+            email,
+            password,
+          },
+        });
         const { token, expiration } = isLogin ? body.data.createToken : body.data.createUser;
-        console.log({ token, expiration });
         authenticate(token, expiration);
         push('/');
+      } catch {
+        console.log('Authentication error');
       }
     }}
     >
@@ -82,6 +98,22 @@ const AuthForm: React.FC<Props> = ({ isLogin = false }) => {
         <Row>
           <TextField label="Password" value={password} onChange={(e) => setPassword(e.target.value)} type="password" fullWidth />
         </Row>
+        {!isLogin && data && (
+          <Row>
+            <FormControl fullWidth>
+              <InputLabel>Department</InputLabel>
+              <Select
+                value={departmentId}
+                onChange={(e) => setDepartmentId(e.target.value as number)}
+                fullWidth
+              >
+                { data.departments.map((d) => (
+                  <MenuItem value={d.id} key={d.id}>{d.title}</MenuItem>
+                )) }
+              </Select>
+            </FormControl>
+          </Row>
+        )}
         <Row>
           <Button type="submit" fullWidth color="primary" variant="contained">Login</Button>
         </Row>

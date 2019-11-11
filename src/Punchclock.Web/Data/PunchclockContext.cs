@@ -6,7 +6,7 @@ using Punchclock.Web.Data.Entities;
 
 namespace Punchclock.Web.Data
 {
-    public class PunchclockContext : IdentityDbContext
+    public class PunchclockContext : IdentityDbContext<Employee>
     {
         public PunchclockContext(DbContextOptions<PunchclockContext> options) : base(options)
         {

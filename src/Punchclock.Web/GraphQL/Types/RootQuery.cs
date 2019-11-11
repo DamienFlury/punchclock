@@ -18,6 +18,10 @@ namespace Punchclock.Web.GraphQL.Types
                 var user = (ClaimsPrincipal)ctx.UserContext;
                 var isUserAuthenticated = ((ClaimsIdentity) user.Identity).IsAuthenticated;
                 if (!isUserAuthenticated) throw new ExecutionError("Not authenticated");
+                if (user.IsInRole("admin"))
+                {
+                    return context.Entries.Include(e => e.Employee).ThenInclude(e => e.Department);
+                }
                 return context.Entries.Where(e => e.Employee.UserName == user.Identity.Name).Include(e => e.Employee)
                     .ThenInclude(e => e.Department);
             });
@@ -27,8 +31,7 @@ namespace Punchclock.Web.GraphQL.Types
                     .Include(e => e.Entries));
 
             Field<ListGraphType<DepartmentType>>("departments", resolve: ctx =>
-                context.Departments.Include(d => d.Employees)
-                    .ThenInclude(e => e.Entries));
+                context.Departments);
 
             Field<DateTimeGraphType>("lastCheckIn", resolve: ctx =>
             {
@@ -44,6 +47,19 @@ namespace Punchclock.Web.GraphQL.Types
                     _ => null
                 };
             });
+
+            FieldAsync<EntryType>("entry", arguments: new QueryArguments(new QueryArgument<IntGraphType> {Name = "id"}),
+                resolve: async ctx =>
+                {
+                    var user = (ClaimsPrincipal)ctx.UserContext;
+                    var isUserAuthenticated = ((ClaimsIdentity) user.Identity).IsAuthenticated;
+                    if (!isUserAuthenticated) throw new ExecutionError("Not authenticated");
+                    if(!user.IsInRole("admin")) throw new ExecutionError("Not an admin");
+                    
+                    var id = ctx.GetArgument<int>("id");
+                    return await context.Entries.Include(e => e.Employee).FirstOrDefaultAsync(e => e.Id == id);
+                });
+
         }
     }
 }
